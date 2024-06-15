@@ -5,10 +5,7 @@ console.log(arrListaOrdenada)
 
 
 function inverteArray(arr) {
-    const aux = arr[0];
-    arr[0] = arr[1];
-    arr[1] = aux;
-
+    [arr[0], arr[1]] = [arr[1], arr[0]];
     return arr;
 }
 
@@ -46,5 +43,5 @@ function ordenarListaQuickSort(arr) {
     
     const { arrMenoresQueOindice, arrMaioresQueOindice } = obterArrMenoresEarrMariores(arr, pivo)
 
-    return [ordenarListaQuickSort(arrMenoresQueOindice)] + [pivo] + [ordenarListaQuickSort(arrMaioresQueOindice)]
+    return ordenarListaQuickSort(arrMenoresQueOindice).concat(pivo, ordenarListaQuickSort(arrMaioresQueOindice))
 }
